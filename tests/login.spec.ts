@@ -13,4 +13,21 @@ test.describe('Login', () => {
 
     await expect(await loginPage.getErrorMessage()).toContain('locked out');
   });
+
+  test('take screenshots', async ({ loginPage }) => {
+
+  const inventoryPage = await loginPage.login(
+    'standard_user',
+    'secret_sauce'
+  );
+
+  // Full page
+  await inventoryPage.takeFullPageScreenshot();
+
+  // Inventory section only
+  await inventoryPage.takeInventoryScreenshot();
+
+  // Page with prices masked
+  await inventoryPage.takeMaskedScreenshot();
+});
 });

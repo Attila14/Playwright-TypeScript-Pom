@@ -11,6 +11,7 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     headless: false,
+    testIdAttribute: 'data-test',
   },
   projects: [
     {
